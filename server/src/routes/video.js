@@ -1,7 +1,6 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 import { getAuthUser, protect } from "../middleware/authorization";
-import { getVideoViews } from "./video";
 
 const prisma = new PrismaClient();
 
