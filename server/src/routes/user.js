@@ -8,12 +8,17 @@ function getUserRoutes() {
   const router = express.Router();
 
   router.get("/liked-videos", protect, getLikedVideos);
+  router.get("/history", protect, getHistory);
 
   return router;
 }
 
 async function getLikedVideos(req, res) {
   await getVideos(prisma.videoLike, req, res);
+}
+
+async function getHistory(req, res) {
+  await getVideos(prisma.view, req, res);
 }
 
 async function getVideos(model, req, res) {
