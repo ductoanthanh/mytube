@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import Container from "styles/Container";
 import MobileNavbar from "components/MobileNavbar";
@@ -15,12 +15,19 @@ import History from "pages/History";
 import YourVideos from "pages/YourVideos";
 import LikedVideos from "pages/LikedVideos";
 import NotFound from "pages/NotFound";
+import { useLocationChange } from "hooks/use-location-change";
 
 function App() {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const handleCloseSidebar = () => setSidebarOpen(false);
+  const toggleSidebarOpen = () => setSidebarOpen(!isSidebarOpen);
+
+  useLocationChange(handleCloseSidebar);
+
   return (
     <>
-      <Navbar />
-      <Sidebar />
+      <Navbar toggleSidebarOpen={toggleSidebarOpen} />
+      <Sidebar isSidebarOpen={isSidebarOpen} />
       <MobileNavbar />
       <Container>
         <Switch>
