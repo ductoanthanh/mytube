@@ -34,7 +34,7 @@ function UploadVideo() {
       const url = await uploadMedia({
         type: "video",
         file,
-        preset: "your-video-preset"
+        preset: "tnrk1id4"
       });
 
       const extension = path.extname(url);
