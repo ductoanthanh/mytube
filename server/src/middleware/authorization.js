@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
-import { PrismaClient } from "@prisma/client";
+import jwt from 'jsonwebtoken';
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -12,11 +12,11 @@ export async function getAuthUser(req, res, next) {
   const decoded = jwt.verify(token, process.env.JWT_SECRET);
   const user = await prisma.user.findUnique({
     where: {
-      id: decoded.id
+      id: decoded.id,
     },
     include: {
-      videos: true
-    }
+      videos: true,
+    },
   });
 
   req.user = user;
@@ -26,8 +26,8 @@ export async function getAuthUser(req, res, next) {
 export async function protect(req, res, next) {
   if (!req.cookies.token) {
     return next({
-      message: "You need to be logged in",
-      statusCode: 401
+      message: 'You need to be logged in',
+      statusCode: 401,
     });
   }
 
@@ -36,19 +36,19 @@ export async function protect(req, res, next) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const user = await prisma.user.findUnique({
       where: {
-        id: decoded.id
+        id: decoded.id,
       },
       include: {
-        videos: true
-      }
+        videos: true,
+      },
     });
 
     req.user = user;
     next();
   } catch (e) {
     next({
-      message: "You need to be logged in",
-      statusCode: 401
+      message: 'You need to be logged in',
+      statusCode: 401,
     });
   }
 }

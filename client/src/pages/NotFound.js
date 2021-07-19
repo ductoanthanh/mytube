@@ -1,6 +1,6 @@
-import React from "react";
-import notFoundImg from "../assets/not-found.png";
-import Wrapper from "../styles/NotFound";
+import React from 'react';
+import notFoundImg from '../assets/not-found.png';
+import Wrapper from '../styles/NotFound';
 
 function NotFound() {
   return (

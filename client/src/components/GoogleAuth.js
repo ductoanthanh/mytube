@@ -1,8 +1,8 @@
-import React from "react";
-import Button from "../styles/Auth";
-import { SignInIcon } from "./Icons";
-import { GoogleLogin } from "react-google-login";
-import { authenticate } from "../utils/api-client";
+import React from 'react';
+import Button from '../styles/Auth';
+import { SignInIcon } from './Icons';
+import { GoogleLogin } from 'react-google-login';
+import { authenticate } from '../utils/api-client';
 
 function GoogleAuth() {
   return (
@@ -12,12 +12,7 @@ function GoogleAuth() {
       onSuccess={authenticate}
       onFailure={authenticate}
       render={(renderProps) => (
-        <Button
-          tabIndex={0}
-          type="button"
-          onClick={renderProps.onClick}
-          disabled={renderProps.disabled}
-        >
+        <Button tabIndex={0} type="button" onClick={renderProps.onClick} disabled={renderProps.disabled}>
           <span className="outer">
             <span className="inner">
               <SignInIcon />

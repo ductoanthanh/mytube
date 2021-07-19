@@ -1,6 +1,6 @@
-import React from "react";
-import noResultsImg from "../assets/no-results.png";
-import Wrapper from "../styles/NoResults";
+import React from 'react';
+import noResultsImg from '../assets/no-results.png';
+import Wrapper from '../styles/NoResults';
 
 function NoResults({ title, text }) {
   return (

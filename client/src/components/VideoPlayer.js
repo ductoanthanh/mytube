@@ -1,7 +1,7 @@
-import React from "react";
-import videojs from "video.js";
-import "video.js/dist/video-js.css";
-import { addVideoView } from "../utils/api-client";
+import React from 'react';
+import videojs from 'video.js';
+import 'video.js/dist/video-js.css';
+import { addVideoView } from '../utils/api-client';
 
 function VideoPlayer({ previewUrl, video }) {
   const videoRef = React.useRef();
@@ -17,10 +17,10 @@ function VideoPlayer({ previewUrl, video }) {
     }
 
     if (previewUrl) {
-      vjsPlayer.src({ type: "video/mp4", src: previewUrl });
+      vjsPlayer.src({ type: 'video/mp4', src: previewUrl });
     }
 
-    vjsPlayer.on("ended", () => {
+    vjsPlayer.on('ended', () => {
       addVideoView(id);
     });
 
@@ -33,11 +33,7 @@ function VideoPlayer({ previewUrl, video }) {
 
   return (
     <div data-vjs-player>
-      <video
-        controls
-        ref={videoRef}
-        className="video-js vjs-fluid vjs-big-play-centered"
-      ></video>
+      <video controls ref={videoRef} className="video-js vjs-fluid vjs-big-play-centered"></video>
     </div>
   );
 }

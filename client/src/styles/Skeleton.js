@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 const pulse = keyframes`
 	0% {
@@ -21,16 +21,16 @@ const SkeletonPulse = styled.div`
 `;
 
 export const SkeletonLine = styled(SkeletonPulse)`
-  margin-bottom: ${(props) => (props.mb ? props.mb : "")};
-  margin-top: ${(props) => (props.mt ? props.mt : "")};
-  margin-left: ${(props) => (props.ml ? props.ml : "")};
-  margin-right: ${(props) => (props.mr ? props.mr : "")};
+  margin-bottom: ${(props) => (props.mb ? props.mb : '')};
+  margin-top: ${(props) => (props.mt ? props.mt : '')};
+  margin-left: ${(props) => (props.ml ? props.ml : '')};
+  margin-right: ${(props) => (props.mr ? props.mr : '')};
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   border-radius: 4px;
 
   &::before {
-    content: "\\00a0";
+    content: '\\00a0';
   }
 `;
 

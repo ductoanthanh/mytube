@@ -1,9 +1,9 @@
-import { Menu, MenuButton, MenuItem, MenuList } from "@reach/menu-button";
-import "@reach/menu-button/styles.css";
-import React from "react";
-import { useAuth } from "../context/auth-context";
-import { deleteComment } from "../utils/api-client";
-import { DeleteIcon, SettingsIcon } from "./Icons";
+import { Menu, MenuButton, MenuItem, MenuList } from '@reach/menu-button';
+import '@reach/menu-button/styles.css';
+import React from 'react';
+import { useAuth } from '../context/auth-context';
+import { deleteComment } from '../utils/api-client';
+import { DeleteIcon, SettingsIcon } from './Icons';
 
 function DeleteCommentDropdown({ comment }) {
   const user = useAuth();

@@ -1,14 +1,14 @@
-import React from "react";
-import { ThemeProvider } from "styled-components";
-import { BrowserRouter as Router } from "react-router-dom";
-import GlobalStyle from "../styles/GlobalStyle";
-import { darkTheme } from "../styles/theme";
-import { AuthProvider } from "../context/auth-context";
-import { ReactQueryConfigProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query-devtools";
-import SnackbarProvider from "react-simple-snackbar";
-import { ErrorBoundary } from "react-error-boundary";
-import ErrorFallback from "./ErrorFallback";
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { BrowserRouter as Router } from 'react-router-dom';
+import GlobalStyle from '../styles/GlobalStyle';
+import { darkTheme } from '../styles/theme';
+import { AuthProvider } from '../context/auth-context';
+import { ReactQueryConfigProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query-devtools';
+import SnackbarProvider from 'react-simple-snackbar';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorFallback from './ErrorFallback';
 
 const config = {
   queries: {
@@ -17,8 +17,8 @@ const config = {
       if (error.status === 404) return false;
       else if (failureCount < 3) return true;
       else return false;
-    }
-  }
+    },
+  },
 };
 
 function AppProviders({ children }) {

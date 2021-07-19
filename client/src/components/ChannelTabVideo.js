@@ -1,6 +1,6 @@
-import React from "react";
-import Wrapper from "../styles/ChannelTabVideo";
-import VideoCard from "./VideoCard";
+import React from 'react';
+import Wrapper from '../styles/ChannelTabVideo';
+import VideoCard from './VideoCard';
 
 function ChannelTabVideo({ videos }) {
   if (!videos.length) {

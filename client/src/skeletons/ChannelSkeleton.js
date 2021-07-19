@@ -1,7 +1,7 @@
 // @ts-nocheck
-import React from "react";
-import Wrapper from "../styles/ChannelSkeleton";
-import { SkeletonLine, VideoCardSkeleton } from "../styles/Skeleton";
+import React from 'react';
+import Wrapper from '../styles/ChannelSkeleton';
+import { SkeletonLine, VideoCardSkeleton } from '../styles/Skeleton';
 
 function ChannelSkeleton() {
   return (

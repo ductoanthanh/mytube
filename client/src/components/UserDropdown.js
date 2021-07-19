@@ -1,10 +1,10 @@
-import { Menu, MenuButton, MenuItem, MenuList } from "@reach/menu-button";
-import "@reach/menu-button/styles.css";
-import React from "react";
-import { useHistory } from "react-router-dom";
-import Avatar from "../styles/Avatar";
-import { ChannelIcon, SignoutIcon } from "./Icons";
-import { signoutUser } from "../utils/api-client";
+import { Menu, MenuButton, MenuItem, MenuList } from '@reach/menu-button';
+import '@reach/menu-button/styles.css';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import Avatar from '../styles/Avatar';
+import { ChannelIcon, SignoutIcon } from './Icons';
+import { signoutUser } from '../utils/api-client';
 
 function UserDropdown({ user }) {
   const history = useHistory();

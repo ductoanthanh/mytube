@@ -1,10 +1,10 @@
-import { Menu, MenuButton, MenuItem, MenuList } from "@reach/menu-button";
-import "@reach/menu-button/styles.css";
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { useAuth } from "../context/auth-context";
-import { deleteVideo } from "../utils/api-client";
-import { DeleteIcon, SettingsIcon } from "./Icons";
+import { Menu, MenuButton, MenuItem, MenuList } from '@reach/menu-button';
+import '@reach/menu-button/styles.css';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { useAuth } from '../context/auth-context';
+import { deleteVideo } from '../utils/api-client';
+import { DeleteIcon, SettingsIcon } from './Icons';
 
 function DeleteVideoDropdown({ video }) {
   const user = useAuth();

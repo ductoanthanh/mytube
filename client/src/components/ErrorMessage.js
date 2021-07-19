@@ -1,5 +1,5 @@
-import React from "react";
-import Wrapper from "../styles/ErrorMessage";
+import React from 'react';
+import Wrapper from '../styles/ErrorMessage';
 
 function ErrorMessage({ error, ...props }) {
   return (

@@ -1,12 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import Wrapper from "../styles/Navbar";
-import GoogleAuth from "./GoogleAuth";
-import { AppsIcon, HamburgerIcon, LogoIcon, SettingsIcon } from "./Icons";
-import Search from "./Search";
-import { useAuth } from "../context/auth-context";
-import UserDropdown from "./UserDropdown";
-import UploadVideo from "./UploadVideo";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import Wrapper from '../styles/Navbar';
+import GoogleAuth from './GoogleAuth';
+import { AppsIcon, HamburgerIcon, LogoIcon, SettingsIcon } from './Icons';
+import Search from './Search';
+import { useAuth } from '../context/auth-context';
+import UserDropdown from './UserDropdown';
+import UploadVideo from './UploadVideo';
 
 function Navbar({ toggleSidebarOpen }) {
   const user = useAuth();
@@ -14,16 +14,13 @@ function Navbar({ toggleSidebarOpen }) {
   return (
     <Wrapper>
       <div className="logo flex-row">
-        <HamburgerIcon
-          className="toggle-navhandler"
-          onClick={toggleSidebarOpen}
-        />
+        <HamburgerIcon className="toggle-navhandler" onClick={toggleSidebarOpen} />
         <span>
           <NavLink to="/">
             <LogoIcon
               style={{
                 width: 80,
-                height: 24
+                height: 24,
               }}
             />
           </NavLink>

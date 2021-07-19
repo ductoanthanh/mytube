@@ -1,16 +1,16 @@
 // @ts-nocheck
-import React from "react";
-import { useQuery } from "react-query";
-import { SubIcon } from "../components/Icons";
-import SignUpCard from "../components/SignUpCard";
-import { useAuth } from "../context/auth-context";
-import Wrapper from "../styles/Home";
-import VideoGrid from "../styles/VideoGrid";
-import { client } from "../utils/api-client";
-import Skeleton from "../skeletons/HomeSkeleton";
-import ErrorMessage from "../components/ErrorMessage";
-import ChannelSuggestions from "../components/ChannelSuggestions";
-import VideoCard from "../components/VideoCard";
+import React from 'react';
+import { useQuery } from 'react-query';
+import { SubIcon } from '../components/Icons';
+import SignUpCard from '../components/SignUpCard';
+import { useAuth } from '../context/auth-context';
+import Wrapper from '../styles/Home';
+import VideoGrid from '../styles/VideoGrid';
+import { client } from '../utils/api-client';
+import Skeleton from '../skeletons/HomeSkeleton';
+import ErrorMessage from '../components/ErrorMessage';
+import ChannelSuggestions from '../components/ChannelSuggestions';
+import VideoCard from '../components/VideoCard';
 
 function Subscriptions() {
   const user = useAuth();
@@ -19,23 +19,13 @@ function Subscriptions() {
     isLoading,
     isError,
     error,
-    isSuccess
-  } = useQuery(
-    "Subscriptions",
-    () => client.get("/users/subscriptions").then((res) => res.data.feed),
-    {
-      enabled: user // run only when user is logged-in
-    }
-  );
+    isSuccess,
+  } = useQuery('Subscriptions', () => client.get('/users/subscriptions').then((res) => res.data.feed), {
+    enabled: user, // run only when user is logged-in
+  });
 
   if (!user) {
-    return (
-      <SignUpCard
-        icon={<SubIcon />}
-        title="Don't miss new videos"
-        description="Sign in to see updates from your favorite YouTube channels"
-      />
-    );
+    return <SignUpCard icon={<SubIcon />} title="Don't miss new videos" description="Sign in to see updates from your favorite YouTube channels" />;
   }
 
   if (isLoading) return <Skeleton />;
@@ -44,15 +34,9 @@ function Subscriptions() {
 
   return (
     <Wrapper>
-      <div style={{ marginTop: "1.5rem" }}></div>
+      <div style={{ marginTop: '1.5rem' }}></div>
 
-      <VideoGrid>
-        {isSuccess
-          ? feed.map((video) => (
-              <VideoCard key={video.id} video={video} hideAvatar />
-            ))
-          : null}
-      </VideoGrid>
+      <VideoGrid>{isSuccess ? feed.map((video) => <VideoCard key={video.id} video={video} hideAvatar />) : null}</VideoGrid>
     </Wrapper>
   );
 }

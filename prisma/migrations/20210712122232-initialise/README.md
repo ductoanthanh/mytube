@@ -174,5 +174,3 @@ migration ..20210712122232-initialise
 +  video     Video    @relation(fields: [videoId], references: [id])
 +}
 ```
-
-

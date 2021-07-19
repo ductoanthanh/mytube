@@ -1,19 +1,11 @@
 // @ts-nocheck
-import React from "react";
-import Wrapper from "../styles/Sidebar";
-import { NavLink } from "react-router-dom";
-import {
-  HistoryIcon,
-  HomeIcon,
-  LibIcon,
-  LikeIcon,
-  SubIcon,
-  TrendingIcon,
-  VidIcon
-} from "./Icons";
-import SidebarAuth from "./SidebarAuth";
-import { useAuth } from "../context/auth-context";
-import Subscriptions from "./Subscriptions";
+import React from 'react';
+import Wrapper from '../styles/Sidebar';
+import { NavLink } from 'react-router-dom';
+import { HistoryIcon, HomeIcon, LibIcon, LikeIcon, SubIcon, TrendingIcon, VidIcon } from './Icons';
+import SidebarAuth from './SidebarAuth';
+import { useAuth } from '../context/auth-context';
+import Subscriptions from './Subscriptions';
 
 function Sidebar({ isSidebarOpen }) {
   const user = useAuth();

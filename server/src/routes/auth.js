@@ -1,8 +1,8 @@
-import express from "express";
-import { PrismaClient } from "@prisma/client";
-import jwt from "jsonwebtoken";
-import { protect } from "../middleware/authorization";
-import { OAuth2Client } from "google-auth-library";
+import express from 'express';
+import { PrismaClient } from '@prisma/client';
+import jwt from 'jsonwebtoken';
+import { protect } from '../middleware/authorization';
+import { OAuth2Client } from 'google-auth-library';
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 const prisma = new PrismaClient();
@@ -10,9 +10,9 @@ const prisma = new PrismaClient();
 function getAuthRoutes() {
   const router = express.Router();
 
-  router.post("/google-login", googleLogin);
-  router.get("/me", protect, me);
-  router.get("/signout", signout);
+  router.post('/google-login', googleLogin);
+  router.get('/me', protect, me);
+  router.get('/signout', signout);
 
   return router;
 }
@@ -21,14 +21,14 @@ async function googleLogin(req, res) {
   const { idToken } = req.body;
   const ticket = await client.verifyIdToken({
     idToken,
-    audience: process.env.GOOGLE_CLIENT_ID
+    audience: process.env.GOOGLE_CLIENT_ID,
   });
   const { name, picture, email } = ticket.getPayload();
 
   let user = await prisma.user.findUnique({
     where: {
-      email
-    }
+      email,
+    },
   });
 
   if (!user) {
@@ -36,17 +36,17 @@ async function googleLogin(req, res) {
       data: {
         email,
         username: name,
-        avatar: picture
-      }
+        avatar: picture,
+      },
     });
   }
 
   const tokenPayload = { id: user.id };
   const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE
+    expiresIn: process.env.JWT_EXPIRE,
   });
 
-  res.cookie("token", token, { httpOnly: true });
+  res.cookie('token', token, { httpOnly: true });
   res.status(200).send(token);
 }
 
@@ -54,9 +54,9 @@ async function me(req, res) {
   const subscriptions = await prisma.subscription.findMany({
     where: {
       subscriberId: {
-        equals: req.user.id
-      }
-    }
+        equals: req.user.id,
+      },
+    },
   });
 
   const channelIds = subscriptions.map((sub) => sub.subscribedToId);
@@ -64,9 +64,9 @@ async function me(req, res) {
   const channels = await prisma.user.findMany({
     where: {
       id: {
-        in: channelIds
-      }
-    }
+        in: channelIds,
+      },
+    },
   });
 
   const user = req.user;
@@ -76,7 +76,7 @@ async function me(req, res) {
 }
 
 function signout(req, res) {
-  res.clearCookie("token");
+  res.clearCookie('token');
   res.status(200).json({});
 }
 

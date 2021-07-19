@@ -1,6 +1,6 @@
-import React from "react";
-import Wrapper from "../styles/SignUpCard";
-import GoogleAuth from "./GoogleAuth";
+import React from 'react';
+import Wrapper from '../styles/SignUpCard';
+import GoogleAuth from './GoogleAuth';
 
 function SignUpCard({ icon, title, description }) {
   return (

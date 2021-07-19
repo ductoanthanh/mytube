@@ -1,8 +1,8 @@
 // @ts-nocheck
-import React from "react";
-import { useHistory } from "react-router-dom";
-import Wrapper from "../styles/Search";
-import { SearchIcon } from "./Icons";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import Wrapper from '../styles/Search';
+import { SearchIcon } from './Icons';
 
 function Search() {
   const history = useHistory();

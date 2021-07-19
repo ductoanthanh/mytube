@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Wrapper from "../styles/TrendingCard";
-import { formatCreatedAt } from "../utils/date";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Wrapper from '../styles/TrendingCard';
+import { formatCreatedAt } from '../utils/date';
 
 function TrendingCard({ video }) {
   return (

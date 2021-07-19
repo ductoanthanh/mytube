@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-function ChannelTabAbout({ about = "No description for this channel" }) {
+function ChannelTabAbout({ about = 'No description for this channel' }) {
   return <p>{about}</p>;
 }
 

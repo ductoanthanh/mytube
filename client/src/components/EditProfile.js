@@ -1,8 +1,8 @@
 // @ts-nocheck
-import React from "react";
-import Button from "../styles/Button";
-import Wrapper from "../styles/EditProfile";
-import EditProfileModal from "./EditProfileModal";
+import React from 'react';
+import Button from '../styles/Button';
+import Wrapper from '../styles/EditProfile';
+import EditProfileModal from './EditProfileModal';
 
 function EditProfile({ profile }) {
   const [showModal, setShowModal] = React.useState(false);
@@ -17,9 +17,7 @@ function EditProfile({ profile }) {
           </Button>
         </div>
       </Wrapper>
-      {showModal && (
-        <EditProfileModal profile={profile} closeModal={closeModal} />
-      )}
+      {showModal && <EditProfileModal profile={profile} closeModal={closeModal} />}
     </>
   );
 }

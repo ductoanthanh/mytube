@@ -1,10 +1,10 @@
-import React from "react";
-import { useSnackbar } from "react-simple-snackbar";
-import Button from "../styles/Button";
-import Wrapper from "../styles/EditProfileModal";
-import { updateUser } from "../utils/api-client";
-import { uploadMedia } from "../utils/upload-media";
-import { CloseIcon } from "./Icons";
+import React from 'react';
+import { useSnackbar } from 'react-simple-snackbar';
+import Button from '../styles/Button';
+import Wrapper from '../styles/EditProfileModal';
+import { updateUser } from '../utils/api-client';
+import { uploadMedia } from '../utils/upload-media';
+import { CloseIcon } from './Icons';
 
 function EditProfileModal({ profile, closeModal }) {
   const [openSnackbar] = useSnackbar();
@@ -16,9 +16,9 @@ function EditProfileModal({ profile, closeModal }) {
 
     if (file) {
       const cover = await uploadMedia({
-        type: "image",
+        type: 'image',
         file,
-        preset: "q15filek" // preset in Cloudinary 600x200
+        preset: 'q15filek', // preset in Cloudinary 600x200
       });
       setCover(cover);
     }
@@ -29,9 +29,9 @@ function EditProfileModal({ profile, closeModal }) {
 
     if (file) {
       const avatar = await uploadMedia({
-        type: "image",
+        type: 'image',
         file,
-        preset: "x80ijvuz" // preset in Cloudinary 250x250
+        preset: 'x80ijvuz', // preset in Cloudinary 250x250
       });
       setAvatar(avatar);
     }
@@ -43,18 +43,18 @@ function EditProfileModal({ profile, closeModal }) {
     const about = event.target.elements.about.value;
 
     if (!username.trim()) {
-      return openSnackbar("Username cannot be empty");
+      return openSnackbar('Username cannot be empty');
     }
 
     const user = {
       username,
       about,
       avatar,
-      cover
+      cover,
     };
 
     await updateUser(user);
-    openSnackbar("Profile updated");
+    openSnackbar('Profile updated');
     closeModal();
   }
 
@@ -73,47 +73,19 @@ function EditProfileModal({ profile, closeModal }) {
 
           <div className="cover-upload-container">
             <label htmlFor="cover-upload">
-              <img
-                className="pointer"
-                width="100%"
-                height="200px"
-                src={cover}
-                alt="cover"
-              />
+              <img className="pointer" width="100%" height="200px" src={cover} alt="cover" />
             </label>
-            <input
-              id="cover-upload"
-              type="file"
-              accept="image/*"
-              style={{ display: "none" }}
-              onChange={handleCoverUpload}
-            />
+            <input id="cover-upload" type="file" accept="image/*" style={{ display: 'none' }} onChange={handleCoverUpload} />
           </div>
 
           <div className="avatar-upload-icon">
             <label htmlFor="avatar-upload">
               <img src={avatar} className="pointer avatar lg" alt="avatar" />
             </label>
-            <input
-              id="avatar-upload"
-              type="file"
-              accept="image/*"
-              style={{ display: "none" }}
-              onChange={handleAvatarUpload}
-            />
+            <input id="avatar-upload" type="file" accept="image/*" style={{ display: 'none' }} onChange={handleAvatarUpload} />
           </div>
-          <input
-            type="text"
-            placeholder="Insert username"
-            id="username"
-            defaultValue={profile.username}
-            required
-          />
-          <textarea
-            id="about"
-            placeholder="Tell viewers about your channel"
-            defaultValue={profile.about}
-          />
+          <input type="text" placeholder="Insert username" id="username" defaultValue={profile.username} required />
+          <textarea id="about" placeholder="Tell viewers about your channel" defaultValue={profile.about} />
         </form>
       </div>
     </Wrapper>
