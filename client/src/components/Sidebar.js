@@ -49,14 +49,14 @@ function Sidebar({ isSidebarOpen }) {
         </div>
       </NavLink>
 
-      <NavLink to="/feed/my_videos" activeClassName="active">
+      <NavLink to="/feed/my-videos" activeClassName="active">
         <div className="icon">
           <VidIcon />
           <span>Your videos</span>
         </div>
       </NavLink>
 
-      <NavLink to="/feed/liked_videos" activeClassName="active">
+      <NavLink to="/feed/liked-videos" activeClassName="active">
         <div className="icon">
           <LikeIcon />
           <span>Liked videos</span>

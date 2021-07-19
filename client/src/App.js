@@ -39,8 +39,8 @@ function App() {
           <Route path="/feed/subscriptions" component={Subscriptions} />
           <Route path="/feed/library" component={Library} />
           <Route path="/feed/history" component={History} />
-          <Route path="/feed/my_videos" component={YourVideos} />
-          <Route path="/feed/liked_videos" component={LikedVideos} />
+          <Route path="/feed/my-videos" component={YourVideos} />
+          <Route path="/feed/liked-videos" component={LikedVideos} />
           <Route path="*" component={NotFound} />
         </Switch>
       </Container>

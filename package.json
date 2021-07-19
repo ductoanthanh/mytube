@@ -14,7 +14,9 @@
     "up": "prisma migrate --experimental up",
     "generate": "prisma generate",
     "studio": "prisma studio",
-    "postinstall": "cd client && npm install && npm run build"
+    "postinstall": "cd client && npm install && npm run build",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write ."
   },
   "cacheDirectories": [
     "node_modules",

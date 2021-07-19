@@ -23,7 +23,7 @@ function MobileNavbar() {
           <HistoryIcon />
         </NavLink>
 
-        <NavLink to="/feed/liked_videos" activeClassName="active">
+        <NavLink to="/feed/liked-videos" activeClassName="active">
           <WatchIcon />
         </NavLink>
       </div>
