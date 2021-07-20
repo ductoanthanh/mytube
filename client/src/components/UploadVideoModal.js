@@ -60,8 +60,17 @@ function UploadVideoModal({ previewVideo, thumbnail, url, defaultTitle, closeMod
         {tab === 'FORM' && (
           <div className="tab video-form">
             <h2>Video Details</h2>
-            <input type="text" placeholder="Enter your video title" value={title} onChange={(event) => setTitle(event.target.value)} />
-            <textarea placeholder="Tell viewers about your video" value={description} onChange={(event) => setDescription(event.target.value)} />
+            <input
+              type="text"
+              placeholder="Enter your video title"
+              value={title}
+              onChange={(event) => setTitle(event.target.value)}
+            />
+            <textarea
+              placeholder="Tell viewers about your video"
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
+            />
           </div>
         )}
       </div>

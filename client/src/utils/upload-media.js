@@ -5,7 +5,9 @@ export async function uploadMedia({ type, file, preset }) {
   formData.append('upload_preset', preset);
   formData.append('file', file);
 
-  const data = await axios.post(`https://api.cloudinary.com/v1_1/hy7vzgxxy/${type}/upload`, formData).then((res) => res.data);
+  const data = await axios
+    .post(`https://api.cloudinary.com/v1_1/hy7vzgxxy/${type}/upload`, formData)
+    .then((res) => res.data);
 
   return data.secure_url;
 }

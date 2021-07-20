@@ -20,14 +20,21 @@ function WatchVideo() {
   const { data: video, isLoading: isLoadingVideo } = useQuery(['WatchVideo', videoId], () =>
     client.get(`/videos/${videoId}`).then((res) => res.data.video)
   );
-  const { data: next, isLoading: isLoadingNext } = useQuery(['WatchVideo', 'Up Next'], () => client.get('/videos').then((res) => res.data.videos));
+  const { data: next, isLoading: isLoadingNext } = useQuery(['WatchVideo', 'Up Next'], () =>
+    client.get('/videos').then((res) => res.data.videos)
+  );
 
   if (isLoadingVideo || isLoadingNext) {
     return <Skeleton />;
   }
 
   if (!isLoadingVideo && !video) {
-    return <NoResults title="Page not found" text="The page you are looking for is not found or it may have been removed" />;
+    return (
+      <NoResults
+        title="Page not found"
+        text="The page you are looking for is not found or it may have been removed"
+      />
+    );
   }
 
   function handleLikeVideo() {
@@ -52,7 +59,8 @@ function WatchVideo() {
 
           <div className="video-info-stats">
             <p>
-              <span>{video.views} views</span> <span>•</span> <span>Premiered {formatCreatedAt(video.createdAt)}</span>
+              <span>{video.views} views</span> <span>•</span>{' '}
+              <span>Premiered {formatCreatedAt(video.createdAt)}</span>
             </p>
 
             <div className="likes-dislikes flex-row">
@@ -69,7 +77,11 @@ function WatchVideo() {
         <div className="channel-info-description">
           <div className="channel-info-flex">
             <div className="channel-info flex-row">
-              <img className="avatar md" src={video.user.avatar} alt={`${video.user.username} channel avatar`} />
+              <img
+                className="avatar md"
+                src={video.user.avatar}
+                alt={`${video.user.username} channel avatar`}
+              />
               <div className="channel-info-meta">
                 <h4>
                   <Link to={`/channel/${video.user.id}`}>{video.user.username}</Link>
@@ -78,7 +90,9 @@ function WatchVideo() {
               </div>
             </div>
 
-            {!video.isVideoMine && !video.isSubscribed && <Button onClick={handleToggleSubscribe}>Subscribe</Button>}
+            {!video.isVideoMine && !video.isSubscribed && (
+              <Button onClick={handleToggleSubscribe}>Subscribe</Button>
+            )}
             {!video.isVideoMine && video.isSubscribed && (
               <Button grey onClick={handleToggleSubscribe}>
                 Subscribed

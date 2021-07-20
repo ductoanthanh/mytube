@@ -13,7 +13,9 @@ function Trending() {
     isError,
     isSuccess,
     error,
-  } = useQuery('TrendingVideos', () => client.get('/videos/trending').then((res) => res.data.videos));
+  } = useQuery('TrendingVideos', () =>
+    client.get('/videos/trending').then((res) => res.data.videos)
+  );
 
   if (isLoading) return <Skeleton />;
   if (isError) return <ErrorMessage error={error} />;
@@ -22,7 +24,9 @@ function Trending() {
     <Wrapper>
       <h2>Trending</h2>
 
-      <div className="trending">{isSuccess ? videos.map((video) => <TrendingCard key={video.id} video={video} />) : null}</div>
+      <div className="trending">
+        {isSuccess ? videos.map((video) => <TrendingCard key={video.id} video={video} />) : null}
+      </div>
     </Wrapper>
   );
 }

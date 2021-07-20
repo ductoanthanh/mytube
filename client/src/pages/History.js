@@ -24,7 +24,13 @@ function History() {
   });
 
   if (!user) {
-    return <SignUpCard icon={<HistoryIcon />} title="Keep track of what you watch" description="Watch history isn't viewable when signed out" />;
+    return (
+      <SignUpCard
+        icon={<HistoryIcon />}
+        title="Keep track of what you watch"
+        description="Watch history isn't viewable when signed out"
+      />
+    );
   }
 
   if (isLoading) return <Skeleton />;
@@ -33,7 +39,9 @@ function History() {
   return (
     <Wrapper noPad>
       <h2>History</h2>
-      {isSuccess && !videos.length && <p className="secondary">Videos that you have watched will show up here</p>}
+      {isSuccess && !videos.length && (
+        <p className="secondary">Videos that you have watched will show up here</p>
+      )}
 
       {isSuccess
         ? videos.map((video) => (

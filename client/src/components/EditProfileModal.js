@@ -75,17 +75,39 @@ function EditProfileModal({ profile, closeModal }) {
             <label htmlFor="cover-upload">
               <img className="pointer" width="100%" height="200px" src={cover} alt="cover" />
             </label>
-            <input id="cover-upload" type="file" accept="image/*" style={{ display: 'none' }} onChange={handleCoverUpload} />
+            <input
+              id="cover-upload"
+              type="file"
+              accept="image/*"
+              style={{ display: 'none' }}
+              onChange={handleCoverUpload}
+            />
           </div>
 
           <div className="avatar-upload-icon">
             <label htmlFor="avatar-upload">
               <img src={avatar} className="pointer avatar lg" alt="avatar" />
             </label>
-            <input id="avatar-upload" type="file" accept="image/*" style={{ display: 'none' }} onChange={handleAvatarUpload} />
+            <input
+              id="avatar-upload"
+              type="file"
+              accept="image/*"
+              style={{ display: 'none' }}
+              onChange={handleAvatarUpload}
+            />
           </div>
-          <input type="text" placeholder="Insert username" id="username" defaultValue={profile.username} required />
-          <textarea id="about" placeholder="Tell viewers about your channel" defaultValue={profile.about} />
+          <input
+            type="text"
+            placeholder="Insert username"
+            id="username"
+            defaultValue={profile.username}
+            required
+          />
+          <textarea
+            id="about"
+            placeholder="Tell viewers about your channel"
+            defaultValue={profile.about}
+          />
         </form>
       </div>
     </Wrapper>

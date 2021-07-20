@@ -20,12 +20,22 @@ function Subscriptions() {
     isError,
     error,
     isSuccess,
-  } = useQuery('Subscriptions', () => client.get('/users/subscriptions').then((res) => res.data.feed), {
-    enabled: user, // run only when user is logged-in
-  });
+  } = useQuery(
+    'Subscriptions',
+    () => client.get('/users/subscriptions').then((res) => res.data.feed),
+    {
+      enabled: user, // run only when user is logged-in
+    }
+  );
 
   if (!user) {
-    return <SignUpCard icon={<SubIcon />} title="Don't miss new videos" description="Sign in to see updates from your favorite YouTube channels" />;
+    return (
+      <SignUpCard
+        icon={<SubIcon />}
+        title="Don't miss new videos"
+        description="Sign in to see updates from your favorite YouTube channels"
+      />
+    );
   }
 
   if (isLoading) return <Skeleton />;
@@ -36,7 +46,11 @@ function Subscriptions() {
     <Wrapper>
       <div style={{ marginTop: '1.5rem' }}></div>
 
-      <VideoGrid>{isSuccess ? feed.map((video) => <VideoCard key={video.id} video={video} hideAvatar />) : null}</VideoGrid>
+      <VideoGrid>
+        {isSuccess
+          ? feed.map((video) => <VideoCard key={video.id} video={video} hideAvatar />)
+          : null}
+      </VideoGrid>
     </Wrapper>
   );
 }

@@ -13,7 +13,13 @@ function VideoCard({ video, hideAvatar, noUsername }) {
       </Link>
       <div className="video-info-container">
         <div className="channel-avatar">
-          {!hideAvatar && <Avatar style={{ marginRight: '0.8rem' }} src={video.user.avatar} alt={`${video.user.username}'s channel avatar`} />}
+          {!hideAvatar && (
+            <Avatar
+              style={{ marginRight: '0.8rem' }}
+              src={video.user.avatar}
+              alt={`${video.user.username}'s channel avatar`}
+            />
+          )}
         </div>
         <div className="video-info">
           <Link to={`/watch/${video.id}`}>
@@ -25,7 +31,8 @@ function VideoCard({ video, hideAvatar, noUsername }) {
             </Link>
           )}
           <p className="secondary leading-4">
-            <span>{video.views} views</span> <span>•</span> <span>{formatCreatedAt(video.createdAt)}</span>
+            <span>{video.views} views</span> <span>•</span>{' '}
+            <span>{formatCreatedAt(video.createdAt)}</span>
           </p>
         </div>
         <DeleteVideoDropdown video={video} />

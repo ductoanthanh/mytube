@@ -7,7 +7,13 @@ import ErrorMessage from './ErrorMessage';
 import ChannelInfo from './ChannelInfo';
 
 function ChannelSuggestions() {
-  const { data: channels, isLoading, isError, error, isSuccess } = useQuery('Channels', () => client.get('/users').then((res) => res.data.channels));
+  const {
+    data: channels,
+    isLoading,
+    isError,
+    error,
+    isSuccess,
+  } = useQuery('Channels', () => client.get('/users').then((res) => res.data.channels));
 
   if (isLoading) return <Skeleton />;
   if (isError) return <ErrorMessage error={error} />;
@@ -15,7 +21,9 @@ function ChannelSuggestions() {
   return (
     <Wrapper>
       <h2>Suggestions For You</h2>
-      {isSuccess ? channels.map((channel) => <ChannelInfo key={channel.id} channel={channel} />) : null}
+      {isSuccess
+        ? channels.map((channel) => <ChannelInfo key={channel.id} channel={channel} />)
+        : null}
     </Wrapper>
   );
 }

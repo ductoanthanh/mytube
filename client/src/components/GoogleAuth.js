@@ -12,7 +12,12 @@ function GoogleAuth() {
       onSuccess={authenticate}
       onFailure={authenticate}
       render={(renderProps) => (
-        <Button tabIndex={0} type="button" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+        <Button
+          tabIndex={0}
+          type="button"
+          onClick={renderProps.onClick}
+          disabled={renderProps.disabled}
+        >
           <span className="outer">
             <span className="inner">
               <SignInIcon />

@@ -35,12 +35,22 @@ function Channel() {
     isLoading,
     isError,
     error,
-  } = useQuery(['Channel', userId], () => client.get(`/users/${userId}`).then((res) => res.data.user), {
-    enabled: userId,
-  });
+  } = useQuery(
+    ['Channel', userId],
+    () => client.get(`/users/${userId}`).then((res) => res.data.user),
+    {
+      enabled: userId,
+    }
+  );
 
   if (!user) {
-    return <SignUpCard icon={<VidIcon />} title="Manage your videos" description="Sign in to upload and manage your videos, pre-recorded or live" />;
+    return (
+      <SignUpCard
+        icon={<VidIcon />}
+        title="Manage your videos"
+        description="Sign in to upload and manage your videos, pre-recorded or live"
+      />
+    );
   }
 
   if (isLoading) return <Skeleton />;
@@ -67,7 +77,9 @@ function Channel() {
           </div>
           {channel.isMe && <EditProfile profile={channel} />}
 
-          {!channel.isMe && !channel.isSubscribed && <Button onClick={handleToggleSubscribe}>Subscribe</Button>}
+          {!channel.isMe && !channel.isSubscribed && (
+            <Button onClick={handleToggleSubscribe}>Subscribe</Button>
+          )}
 
           {!channel.isMe && channel.isSubscribed && (
             <Button grey onClick={handleToggleSubscribe}>

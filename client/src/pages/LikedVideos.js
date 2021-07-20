@@ -18,12 +18,22 @@ function LikedVideos() {
     isError,
     isSuccess,
     error,
-  } = useQuery('LikedVideos', () => client.get('/users/liked-videos').then((res) => res.data.videos), {
-    enabled: user,
-  });
+  } = useQuery(
+    'LikedVideos',
+    () => client.get('/users/liked-videos').then((res) => res.data.videos),
+    {
+      enabled: user,
+    }
+  );
 
   if (!user) {
-    return <SignUpCard icon={<ChannelIcon />} title="Save everything you like" description="Videos that you have liked will show up here" />;
+    return (
+      <SignUpCard
+        icon={<ChannelIcon />}
+        title="Save everything you like"
+        description="Videos that you have liked will show up here"
+      />
+    );
   }
 
   if (isLoading) return <Skeleton />;
@@ -33,7 +43,9 @@ function LikedVideos() {
     <Wrapper>
       <h2>Liked Videos</h2>
 
-      {isSuccess && !videos.length && <p className="secondary">Videos that you have liked will show up here</p>}
+      {isSuccess && !videos.length && (
+        <p className="secondary">Videos that you have liked will show up here</p>
+      )}
 
       {isSuccess
         ? videos.map((video) => (

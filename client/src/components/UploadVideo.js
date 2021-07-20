@@ -49,9 +49,21 @@ function UploadVideo() {
       <label htmlFor="video-upload">
         <UploadIcon />
       </label>
-      <input style={{ display: 'none' }} id="video-upload" type="file" accept="video/*" onChange={handleUploadVideo} />
+      <input
+        style={{ display: 'none' }}
+        id="video-upload"
+        type="file"
+        accept="video/*"
+        onChange={handleUploadVideo}
+      />
       {showModal && (
-        <UploadVideoModal previewVideo={previewVideo} thumbnail={thumbnail} defaultTitle={defaultTitle} url={url} closeModal={closeModal} />
+        <UploadVideoModal
+          previewVideo={previewVideo}
+          thumbnail={thumbnail}
+          defaultTitle={defaultTitle}
+          url={url}
+          closeModal={closeModal}
+        />
       )}
     </div>
   );

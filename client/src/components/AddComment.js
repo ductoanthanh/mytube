@@ -30,7 +30,11 @@ function AddComment({ video }) {
       <h3>{video.comments.length} comments</h3>
 
       <div className="add-comment">
-        {user ? <img src={user.avatar} alt={user.username} /> : <img src={defaultAvatar} alt="default user" />}
+        {user ? (
+          <img src={user.avatar} alt={user.username} />
+        ) : (
+          <img src={defaultAvatar} alt="default user" />
+        )}
         <textarea
           placeholder="Add a public comment..."
           value={comment}
