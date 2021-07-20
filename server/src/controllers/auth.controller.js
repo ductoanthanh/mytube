@@ -1,21 +1,9 @@
-import express from 'express';
 import { PrismaClient } from '@prisma/client';
-import jwt from 'jsonwebtoken';
-import { protect } from '../middleware/authorization';
 import { OAuth2Client } from 'google-auth-library';
+import jwt from 'jsonwebtoken';
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 const prisma = new PrismaClient();
-
-function getAuthRoutes() {
-  const router = express.Router();
-
-  router.post('/google-login', googleLogin);
-  router.get('/me', protect, me);
-  router.get('/signout', signout);
-
-  return router;
-}
 
 async function googleLogin(req, res) {
   const { idToken } = req.body;
@@ -80,4 +68,4 @@ function signout(req, res) {
   res.status(200).json({});
 }
 
-export { getAuthRoutes };
+module.exports = { googleLogin, me, signout };

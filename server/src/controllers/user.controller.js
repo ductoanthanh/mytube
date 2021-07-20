@@ -1,26 +1,7 @@
 import { PrismaClient } from '@prisma/client';
-import express from 'express';
-import { getAuthUser, protect } from '../middleware/authorization';
-import { getVideoViews } from './video';
+import { getVideoViews } from './video.controller';
 
 const prisma = new PrismaClient();
-
-function getUserRoutes() {
-  const router = express.Router();
-
-  router.get('/', protect, getRecommendedChannels);
-  router.put('/', protect, editUser);
-
-  router.get('/liked-videos', protect, getLikedVideos);
-  router.get('/history', protect, getHistory);
-  router.get('/subscriptions', protect, getFeed);
-  router.get('/search', getAuthUser, searchUser);
-
-  router.get('/:userId', getAuthUser, getProfile);
-  router.get('/:userId/toggle-subscribe', protect, toggleSubscribe);
-
-  return router;
-}
 
 async function getLikedVideos(req, res) {
   await getVideos(prisma.videoLike, req, res);
@@ -384,4 +365,14 @@ async function editUser(req, res) {
   res.status(200).json({ user });
 }
 
-export { getUserRoutes };
+export {
+  getLikedVideos,
+  getHistory,
+  getVideos,
+  toggleSubscribe,
+  getFeed,
+  searchUser,
+  getRecommendedChannels,
+  getProfile,
+  editUser,
+};
